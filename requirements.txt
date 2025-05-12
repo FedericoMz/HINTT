@@ -1,0 +1,5 @@
+tk
+pynput
+mss
+Pillow
+openai
