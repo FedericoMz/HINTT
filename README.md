@@ -1,6 +1,6 @@
 # HINTT
 
-**_HINTT Is Not a Traditional Translator_**, but a Python  tool that lets you **select a region of your screen**, captures it as an image, and uses **OpenAI's GPT-4 Vision** model to extract and translate text from the screenshot with **a simple keyboard shortcut**.
+**_HINTT Is Not a Traditional Translator_**, but a Python tool that lets you **select a region of your screen**, captures it as an image, and uses **OpenAI's GPT-4 Vision** model to extract and translate text from the screenshot with **a simple keyboard shortcut**.
 
 HINTT is the perfect companion for playing games in a foreign language or visiting foreign websites!
 
@@ -12,6 +12,8 @@ HINTT is the perfect companion for playing games in a foreign language or visiti
 - **Global hotkey** (`q`) for quick screenshot capture
 - **Image-to-text translation** powered by OpenAI Vision (GPT-4.1)
 - On-screen display of the translated text you can move around
+- Retain previously translated text for context
+- Compatible with **OpenAI** and open-source **Ollama** models
 - Lightweight, Python-native, and easy to extend!
 
 ---
@@ -34,29 +36,26 @@ The GIF below shows an edge case where HINTT excels: translating Japanese text d
 ![HINTT demo showing Japanese text](demo.gif)
 ---
 
-## Requirements
+## Requirements and configuration
 
-- Python 3.8+
-- Access to OpenAI APIs.
+- Python 3.10+
+- Access to OpenAI APIs for the best experience
 
 Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-Set your API key as an environment variable:
-```bash
-export OPENAI_API_KEY=your-api-key-here  # Unix
-set OPENAI_API_KEY=your-api-key-here     # Windows
-```
+In `config.env` you can set the OpenAI key and customize the prompt (and thus the output language), the OpenAI model used, and how many previous messages are retained for translation context.
 
-On Windows, you may need to run your terminal as Administrator.
+If you set `RUN_MODE="Ollama"` or `RUN_MODE="ollama"`, a local Ollama model will be used instead, set via the `OLLAMA_MODEL` variable. HINTT has been tested with `llava` and `granite3.2-vision`. Results are far worse than with OpenAI, and you might have to tweak the prompt. Hopefully better models will be available in the future.
 
 ## To-Do / Improvements
 
-- [ ] A better GUI
-- [ ] Allow customizing the prompt, the output language, and the model
-- [ ] Use translation history as context
+- [ ] A proper GUI
+- [X] Allow customizing the prompt, the output language, and the model
+- [X] Use translation history as context
+- [X] Implement Ollama models as an option
 
 
 

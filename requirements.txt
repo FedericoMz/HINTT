@@ -3,3 +3,5 @@ pynput
 mss
 Pillow
 openai
+python-dotenv
+ollama
